@@ -16,10 +16,38 @@
             text-align:center;
             margin: 30px 0;
         }
-        
+
     </style>
 </head>
 <body>
-    
+    <h1>Add New Car</h1>
+<form id="carForm">
+    <div class="form-group">
+        <label>Color:</label>
+        <input type="text" id="color" placeholder="Enter color" required>
+    </div>
+    <div class="form-group">
+        <label>Model:</label>
+        <input type="text" id="model" placeholder="Enter model" required>
+    </div>
+    <div class="form-group">
+        <label>Year:</label>
+        <input type="number" id="year" placeholder="Enter year" min="1900" max="2026" required>
+    </div>
+    <div class="form-group">
+        <label>Location:</label>
+        <input type="text" id="location" placeholder="Enter location" required>
+    </div>
+    <div class="form-group">
+        <label>Price ($):</label>
+        <input type="number" id="price" placeholder="Enter price" required>
+    </div>
+    <div class="form-group">
+        <label>Car Image:</label>
+        <input type="file" id="image" accept="image/*" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>
