@@ -24,12 +24,46 @@
             padding: 20px;
             min-height: 100vh;
         }
+
+        .navbar {
+    background-color: #333; 
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: burlywood; 
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4CAF50; 
+}
+
+        
         
         .container {
             max-width: 600px;
             margin: 0 auto;
 
-            background-color: rgba(255, 255, 255, 0.6); 
+            background-color: rgba(255, 255, 255, 0.65); 
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
             padding: 30px;
@@ -112,11 +146,24 @@
         .required {
             color: #dc3545; 
         }
-        
         @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+        
+        
+    
             .container {
                 padding: 20px;
             }
+            
+            
             
             h1 {
                 font-size: 24px;
@@ -143,6 +190,15 @@
     </style>
 </head>
 <body>
+
+    <div class="navbar">
+    <div class="navbar-title">Add Car</div>
+    <div class="nav-links">
+        <a href="homepage.html" class="nav-link">homepage</a>
+        <a href="search.html" class="nav-link">search&login</a>
+        <a href="registration.html" class="nav-link">registration</a>
+    </div>
+</div>
     <div class="container">
         <h1>Add New Car</h1>
         
