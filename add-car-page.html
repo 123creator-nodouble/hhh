@@ -237,24 +237,6 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('carForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                color: document.getElementById('color').value,
-                model: document.getElementById('model').value,
-                year: document.getElementById('year').value,
-                location: document.getElementById('location').value,
-                price: document.getElementById('price').value,
-                image: document.getElementById('image').files[0] ? document.getElementById('image').files[0].name : "No image"
-            };
-            
-            console.log("Car Information:", formData);
-            alert("Car information submitted successfully!");
-            
-            this.reset();
-        });
-    </script>
+    
 </body>
 </html>
