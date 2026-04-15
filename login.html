@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <title>log in - car sale platform</title>
+    <style>
+        body {
+            background-image: url("images/login.jpg");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;     
+        }       
+        .box {
+            height: 60px;
+            background-color: rgba(87, 86, 86, 1);
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 999;
+        }
+        .box h1{
+            color: burlywood;
+            font-size: 25px;
+            margin:0;
+        }
+        .navigationlinks{
+            display: flex;
+            gap:25px;
+        }      
+        .navigationlinks a {
+            color: white;
+            text-decoration: none;
+            font-size:16px;
+        }
+        .navigationlinks a:hover {
+             color: #35f361;
+        }
+        .logincontainer {
+            max-width: 1200px;
+            margin: 8rem auto 2rem; 
+            padding: 0 1rem;
+        }
+        .loginform {
+            background: #f5f5f5;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            max-width: 500px;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+        .formgroup {
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .formgroup label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 1rem;
+        }
+        .formgroup input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .searchbottom {
+            background: #35f361;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .loginswitch {
+            text-align: center;
+            margin-top: 1rem;
+            color: #35f361;           
+            display: block;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <h1>CAR SALE PLATFORM</h1>
+            <div class="navigationlinks">
+                <a href="f1 homepage.html">homepage</a>
+                <a href="search.html">search car</a>
+                <a href="login.html">log in</a>
+                <a href="carregistration.html">sign in</a>
+                <a href="add-car-page.html">add car</a>
+            </div>
+        </div>
+    </header>
+    <main class="logincontainer">
+        <h1 style="text-align:center; color:white;">Log In</h1>
+        <form class="loginform" id="loginform">
+            <div class="formgroup">
+                <label for="username">Username</label>
+                <input type="text"id="username" name="username"placeholder="Enter username" required>
+            </div>
+            <div class="formgroup">
+                <label for="password">Password</label>
+                <input type="password" id="password"name="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="searchbottom">log in</button>
+           
+            <a href="carregistration.html" class="loginswitch">If you don't have an account.PLease sign up here</a>
+        </form>
+    </main>
+    <script src="js/login.js"></script>
+</body>
+</html>
