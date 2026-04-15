@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var passwordinput = document.getElementById("password");
     loginform.onsubmit = function (e) {
         e.preventDefault();
-        var user = usernameinput.value;
-        var pass = passwordinput.value;
-        if (user == "" || pass == "") {
+        var username = usernameinput.value;
+        var password = passwordinput.value;
+        if (username == "" || password == "") {
             alert("Please fill in the username and password");
             return;
-        }if (user == "zin" && pass == "1298751101") {
+        }if (username == "zin" && password == "1298751101") {
             alert("Successfully Login");
             window.location.href = "add-car-page.html";
         } else {

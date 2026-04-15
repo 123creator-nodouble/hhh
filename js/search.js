@@ -6,8 +6,15 @@
 window.onload = function () {
    var current_url = window.location.href;
     if (current_url.indexOf("car-detail") > -1) {
-        var index = current_url.split("carindex=")[1];
-        var car = cars[index];
+      var carid = new URLSearchParams(window.location.search).get('carid');
+       var car = null;
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].id == carid) {
+                car = cars[i];
+                break;
+            }
+        }
+        if(car){
         document.getElementById("carimg").src = car.image;
         document.getElementById("model").innerHTML = car.model;
         document.getElementById("year").innerHTML = car.year;
@@ -15,18 +22,19 @@ window.onload = function () {
         document.getElementById("color").innerHTML = car.color;
         document.getElementById("location").innerHTML = car.location;
         document.getElementById("seller").innerHTML = car.seller;
+        }
         return;
     } var searchform = document.getElementById("searchform");
     searchform.onsubmit = function (event) {
         event.preventDefault();
         var carmodel = document.getElementById("carmodel").value;
         var caryear = document.getElementById("caryear").value;
-        var filtered_cars = [];
+        var filteredcars = [];
         for (var i = 0; i < cars.length; i++) {
             var car = cars[i];
-            if ((carmodel == "" || car.model == carmodel) && (caryear == "" || car.year == caryear)) {
-                filtered_cars.push(car);
-            }} showcars(filtered_cars);
+            if ((carmodel == ""||car.model == carmodel) && (caryear == ""||car.year == caryear)) {
+                filteredcars.push(car);
+            }} showcars(filteredcars);
     }; showcars(cars);};
 function showcars(list) {
     var carbox = document.getElementById("carlist");
@@ -35,7 +43,7 @@ function showcars(list) {
         var car = list[i];
         var card = document.createElement("div");
        card.className = "carcard";
-        var html = "<img src='" + car.image + "'><div class='carinfo'><p class='carprice'>" + car.price + "</p><a href='car-detail.html?carindex=" + i + "' class='detaillink'>More details</a></div>";
+        var html = "<img src='" + car.image + "'><div class='carinfo'><p class='carprice'>"  + car.price + "</p><a href='car-detail.html?carindex=" + i + "' class='detaillink'>More details</a></div>";
        card.innerHTML = html;
        carbox.appendChild(card);
     }
