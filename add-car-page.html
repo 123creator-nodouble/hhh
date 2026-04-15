@@ -25,39 +25,57 @@
             min-height: 100vh;
         }
 
-        .navbar {
-    background-color: #333; 
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        .navbar {        
+            height: 60px;        
+            background-color: rgba(87, 86, 86, 0.919);        
+            padding: 0 30px;        
+            border-radius: 8px;        
+            margin-bottom: 30px;        
+            display: flex;        
+            justify-content: space-between;        
+            align-items: center;        
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);    
+        }
+    .navbar-title {        
+        font-size: 28px;        
+        font-weight: 700;        
+        color: burlywood;        
+        letter-spacing: 0.5px;        
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);    
+    
+    }
+    .nav-links {        
+        display: flex;        
+        gap: 30px;        
+        align-items: center;    
 }
-
-.navbar-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: burlywood; 
+    
+.nav-link {        
+color: white;        
+text-decoration: none;        
+font-size: 19px;        
+font-weight: 500;        
+padding: 8px 5px;        
+position: relative;        
+transition: color 0.3s, transform 0.3s;    
 }
-
-.nav-links {
-    display: flex;
-    gap: 20px;
+    .nav-link:hover {        
+        color: #35f361;        
+        transform: translateY(-2px);    
 }
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #4CAF50; 
-}
-
-        
+        .nav-link::after {        
+            content: '';        
+            position: absolute;        
+            width: 0;        
+            height: 2px;        
+            bottom: 0;        
+            left: 0;        
+            background-color: #35f361;        
+            transition: width 0.3s;    
+        }
+    .nav-link:hover::after {        
+        width: 100%;    
+    }
         
         .container {
             max-width: 600px;
@@ -146,15 +164,42 @@
         .required {
             color: #dc3545; 
         }
+        
         @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        .navbar {            
+            padding: 0 20px;            
+            flex-direction: column;            
+            height: auto;            
+            padding: 15px 20px;            
+            gap: 15px;        
+        }        
+        .navbar-title {            
+            font-size: 24px;        
+        }        
+        .nav-links {            
+            gap: 20px;            
+            flex-wrap: wrap;            
+            justify-content: center;        
+}        
+        .nav-link {            
+            font-size: 17px;        
+        }    
+}        
+@media (max-width: 480px) {
+        .navbar {            
+            padding: 12px 15px;            
+            border-radius: 6px;        
+        }        
+        .nav-links {            
+            gap: 15px;        
+        }        
+        .nav-link {            
+            font-size: 16px;        
+        }        
+        .navbar-title {            
+            font-size: 22px;        
+        }    
+}
     
         
         
@@ -172,7 +217,7 @@
             input, select, button[type="submit"] {
                 padding: 12px;
             }
-        }
+        
         
         @media (max-width: 480px) {
             body {
@@ -191,13 +236,14 @@
 </head>
 <body>
 
-    <div class="navbar">
-    <div class="navbar-title">Add Car</div>
-    <div class="nav-links">
-        <a href="homepage.html" class="nav-link">homepage</a>
-        <a href="search.html" class="nav-link">search&login</a>
-        <a href="registration.html" class="nav-link">registration</a>
-    </div>
+    <div class="navbar">    
+<div class="navbar-title">Add Car</div>    
+<div class="nav-links">        
+<a href="homepage.html" class="nav-link">Homepage</a>        
+<a href="registration.html" class="nav-link">Registration</a>        
+<a href="search.html" class="nav-link">Search</a>        
+<a href="detail.html" class="nav-link">Detail</a>    
+</div>
 </div>
     <div class="container">
         <h1>Add New Car</h1>
