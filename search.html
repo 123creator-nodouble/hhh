@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+    <title>Search - CAR SALE PLATFORM</title>
+
+    <style>
+        body {
+            background-image: url("images/search.jpg");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            height: 60px;
+            background-color: rgba(87, 86, 86, 1);
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 999;
+        }
+           .box h1 {
+                color: burlywood;
+                font-size: 25px;
+                margin: 0;
+            }
+        .navigationbar {
+            height: 60px;
+            background-color: rgba(87, 86, 86, 0.8);
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 999;         
+        }
+       .logoarea {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sitetitle {
+            color: burlywood;
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .navigationlinks {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+            .navigationlinks a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+            }
+            .navigationlinks a:hover {
+                    color: #35f361;
+                }
+        .searchcontainer {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            margin-top: 80px;
+        }
+        .searchform {
+            background: rgba(245, 245, 245, 0.8);
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        .formgroup {
+            margin-bottom: 1.5rem;
+        }
+        .formgroup select,
+        .formgroup input {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                font-size: 1rem;
+            }
+        .searchbottom {
+            background: #35f361;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            width: 100%;
+            cursor: pointer;
+        }
+           .searchbottom:hover {
+                background: #28d150;
+            }
+        .carlist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .carcard {
+            border: 1px solid #eee;
+            background: white;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+            .carcard img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                display: block;
+            }
+        .carinfo {
+            padding: 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+            .carinfo h3 {
+                margin: 0 0 0.5rem 0;
+                color: #333;
+            }
+        .carprice {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: rgba(87, 86, 86, 1);
+            margin: 0.5rem 0;
+        }
+        .detaillink {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #35f361;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logoarea">
+                <img src="images/logo.jpg" width="50">
+                <a class="sitetitle">CAR SALE PLATFORM</a>
+            </div>
+            <ul class="navigationlinks">
+                <li><a href="f1 homepage.html">homepage</a></li>
+                <li><a href="search.html">search car</a></li>
+                <li><a href="login.html">log in</a></li>
+                <li><a href="carregistration.html">sign in</a></li>
+                <li><a href="add-car-page.html">add car</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="searchcontainer">
+        <h1>Search what you want◔̯◔</h1>
+        <form class="searchform" id="searchform">
+            <div class="formgroup">
+                <label for="carmodel">type</label>
+                <select id="carmodel" name="carmodel">
+                    <option value="">offer models</option>
+                    <option value="sedan">sedan</option>
+                    <option value="suv">SUV</option>
+                    <option value="truck">truck</option>
+                    <option value="roadster">roadster</option>
+                    <option value="electric car">new energy electric car</option>
+                </select>
+            </div>
+            <div class="formgroup">
+                <label for="caryear">year</label>
+                <input type="number" id="caryear" name="caryear" min="1000" max="2026" placeholder="enter the year（ex:2026）">
+            </div>
+            <button type="submit" class="searchbottom">search these cars</button>
+        </form>
+        <div class="carlist" id="carlist"></div>
+    </main>
+    <script src="js/search.js"></script>
+</body>
+</html>
