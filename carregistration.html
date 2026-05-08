@@ -147,135 +147,105 @@
     
     </style>
     <script>
-        function Username_True(){
+        function CheckAll() {
             var username = document.getElementsByName("username")[0].value;
-            if(username.length < 6){
-                alert("The username must be more than five characters long.");  
-            }
-        }
-        function Password_True(){
             var password = document.getElementsByName("password")[0].value;
-            if(password.length < 6){
-                alert("The password must be more than five characters long.");  
-            }
-        }
-        function Verification(){
-            alert("Verification code sent to your contact information!");
-        }
-        function Register(){
-            var verification = document.getElementsByName("verification code")[0].value;
-            if(verification!="1234"){
-                alert("Incorrect verification code. Please try again.");}
-                else{ 
-                    alert("Registration successful!");
-                }
-        }
-        function Check() {
             var name = document.getElementById("FullName").value;
-            var address = document.getElementById("Address").value;
             var phone = document.getElementById("Phone").value;
             var email = document.getElementById("Email").value;
+            var address = document.getElementById("Address").value;
+
+            if (username.length < 6) {
+                alert("Username at least 6 chars");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password at least 6 chars");
+                return false;
+            }
 
             var nameReg = /^[a-zA-Z ]+$/;
             if (!nameReg.test(name)) {
-                 alert("Name: letters only");
-                 return false;
+                alert("Name: letters only");
+                return false;
             }
-
-            var addrReg = /^[a-zA-Z0-9 ]+$/;
-            if (!addrReg.test(address)) {
-                 alert("Address: alphanumeric only");
-                 return false;
-            }
-
 
             var phoneReg = /^1[3-9]\d{9}$/;
             if (!phoneReg.test(phone)) {
-                 alert("Invalid China phone");
-                 return false;
+                alert("Invalid China phone");
+                return false;
             }
 
             var emailReg = /^[^@]+@[^@]+\.(com|cn)$/;
-             if (!emailReg.test(email)) {
-                 alert("Email: one @, end with .com/.cn");
-                 return false;
+            if (!emailReg.test(email)) {
+                alert("Email must include @ and end with .com/.cn");
+                return false;
             }
-             alert('Submit Successfully!');
-             location.href='login.html';
-             return true;
+            return true;
         }
-        
     </script>
 </head>
 <body>
 
-
-  <div class="navbar">
-        <div class="nav-registration">
-            <img src="logo.jpg" class="logo">
-            <a href="carregistration.html">Registration</a>
+<div class="navbar">
+    <div class="nav-registration">
+        <img src="logo.jpg" class="logo">
+        <a href="carregistration.html">Registration</a>
+    </div>
+    <div class="nav-right">
+        <div class="nav-item">
+            <a href="login.html">Login in</a>
         </div>
-        <div class="nav-right">
-            <div class="nav-item">
-                <a href="login.html">Login in</a>
-            </div>
-            <div class="nav-item">
-                <a href="add-car-page.html">Add car</a>
-            </div>
-            <div class="nav-item">
-                <a href="f1 homepage.html">Homepage</a>
-            </div>
+        <div class="nav-item">
+            <a href="add-car-page.html">Add car</a>
+        </div>
+        <div class="nav-item">
+            <a href="f1 homepage.html">Homepage</a>
         </div>
     </div>
+</div>
 
-    <br><br><br><br>
-    <h1><b>Car Seller Registration Page</b></h1>
-    <form>
-        <h2>Registration Information</h2>
-        <label>Username👤:</label>
-        <input type="text" name="username" placeholder="Your Username">
-        <br>
-        <label>Password🔒:</label>
-        <input type="password" name="password" placeholder="Your Password">
-        <br>
-        <label>Verification Code🔢 :</label>
-        <input type="text" name="verification code" placeholder="Enter Verification Code" style="width:100px;">
-        <button type="button" onclick="Verification()" style="font-size:10px;padding:10px 20px;">Send Code</button>
-        <br>
-        <button type="submit" onclick="Username_True();Password_True();Register();">Register</button>
-        <br>
-        <a href="login.html" style="font-size:10px;">Already have an account?</a>
-        <br><br><hr>
-    </form>
-    <form>
-        <h2>Personal Information</h2>
-        <label>Full Name👤:</label>
-        <input type="text" id="FullName" placeholder="Your Full Name">
-        <br>
-        <label>Address📍:</label>
-        <input type="text" id="Address" placeholder="Your Address">
-        <br>
-        <label>Phone📱:</label>
-        <input type="text" id="Phone" placeholder="Your Phone Number">
-        <br>
-        <label>ID Number🆔:</label>
-        <input type="password" name="id number" placeholder="ID Number">
-        <br> 
-        <label>ID Photo🆔:</label>
-        <input type="file" name="id photo"style="border-radius: 0;height:25px;">
-        <br>
-        <label>Email📧:</label>
-        <input type="text" id="Email" placeholder="Your Email">
-        <br>
-        <label>Seller Type</label>
-        <input type="radio" name="seller type" >Individual
-        <input type="radio" name="seller type" >Dealer
-        <br>
-        <h2>Agreement</h2>
-        <input type="checkbox" name="agreement"> I confirm all information is true.
-        <br><br>
-       <button type="button" onclick="Check();" style="font-size:25px;">Submit</button>
-       
-    </form>
-    <div class="box3" style="font-size:15px;">Any Problem? Contact Us!  3024579532@qq.com</div>
+<br><br><br><br>
+<h1><b>Car Seller Registration Page</b></h1>
+
+<!-- 我给你加了能存数据库的表单 -->
+<form action="register.php" method="post" onsubmit="return CheckAll()">
+
+    <h2>Registration Information</h2>
+    <label>Username👤:</label>
+    <input type="text" name="username" placeholder="Your Username">
+    <br>
+    <label>Password🔒:</label>
+    <input type="password" name="password" placeholder="Your Password">
+    <br>
+
+    <h2>Personal Information</h2>
+    <label>Full Name👤:</label>
+    <input type="text" name="full_name" id="FullName" placeholder="Your Full Name">
+    <br>
+    <label>Address📍:</label>
+    <input type="text" name="address" id="Address" placeholder="Your Address">
+    <br>
+    <label>Phone📱:</label>
+    <input type="text" name="phone" id="Phone" placeholder="Your Phone Number">
+    <br>
+    <label>ID Number🆔:</label>
+    <input type="text" name="id_number" placeholder="ID Number">
+    <br> 
+    <label>Email📧:</label>
+    <input type="text" name="email" id="Email" placeholder="Your Email">
+    <br>
+    <label>Seller Type</label>
+    <input type="radio" name="seller_type" value="Individual">Individual
+    <input type="radio" name="seller_type" value="Dealer">Dealer
+    <br>
+    <input type="checkbox" name="agreement"> I confirm all information is true.
+    <br><br>
+    <button type="submit">Submit & Register</button>
+    <br>
+    <a href="login.html">Already have an account?</a>
+</form>
+
+<div class="box3" style="font-size:15px;">Any Problem? Contact Us!  3024579532@qq.com</div>
+</body>
 </html>
