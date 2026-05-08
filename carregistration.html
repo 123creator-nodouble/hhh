@@ -50,6 +50,8 @@
             align-items: center;
             position: fixed;
             z-index: 999;
+            top:0;
+            left:0;
         }
 
         .nav-registration {
@@ -89,38 +91,25 @@
             padding: 20px;
         }
 
-      .box-container {
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        display:flex;
-        padding:0;
-        box-sizing:border-box;
-        z-index: 999; 
-    }
-    
-    .box-container a {
-        text-decoration: none;
-        color: white;
-    }
-
-  .box3{
+      .box3{
     width:100%;
     background-color: rgb(87, 86, 86);
     color:white;
     font-size:15px;
     padding: 15px 20px;
-    margin-top: 30px;
-    position: relative;
-    clear: both;
+    position: fixed;
+    bottom:0;
+    left:0;
+    text-align: center;
 }
 
  body{
     background-image: url("car-background.jpg");
-    background-size: contain;
+    background-size: cover;
     background-position:left center;
     margin: 0;
+    min-height: 100vh;
+    padding-bottom: 60px;
 }
     button,input[type="submit"],input[type="button"] {
          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -150,7 +139,6 @@
          vertical-align: middle;
         }
 
-    
     </style>
     <script>
         function Username_True(){
@@ -169,7 +157,7 @@
             alert("Verification code sent to your contact information!");
         }
         function Register(){
-            var verification = document.getElementsByName("verification code")[0].value;
+            var verification = document.getElementsByName("verification_code")[0].value;
             if(verification!="1234"){
                 alert("Incorrect verification code. Please try again.");}
                 else{ 
@@ -213,7 +201,6 @@
 </head>
 <body>
 
-
   <div class="navbar">
         <div class="nav-registration">
             <img src="logo.jpg" class="logo">
@@ -234,7 +221,7 @@
 
     <br><br><br><br>
     <h1><b>Car Seller Registration Page</b></h1>
-    <form action="register.php" method="post" onsubmit="return Check()">
+    <form action="register.php" method="post" enctype="multipart/form-data" onsubmit="return Check()">
         <h2>Registration Information</h2>
         <label>Username👤:</label>
         <input type="text" name="username" placeholder="Your Username">
@@ -243,7 +230,7 @@
         <input type="password" name="password" placeholder="Your Password">
         <br>
         <label>Verification Code🔢 :</label>
-        <input type="text" name="verification code" placeholder="Enter Verification Code" style="width:100px;">
+        <input type="text" name="verification_code" placeholder="Enter Verification Code" style="width:100px;">
         <button type="button" onclick="Verification()" style="font-size:10px;padding:10px 20px;">Send Code</button>
         <br>
         <button type="button" onclick="Username_True();Password_True();Register();">Register</button>
@@ -262,10 +249,10 @@
         <input type="text" id="Phone" name="phone" placeholder="Your Phone Number">
         <br>
         <label>ID Number🆔:</label>
-        <input type="password" name="id_number" placeholder="ID Number">
+        <input type="password" name="id_card" placeholder="ID Number">
         <br> 
         <label>ID Photo🆔:</label>
-        <input type="file" name="id photo"style="border-radius: 0;height:25px;">
+        <input type="file" name="id_photo" style="border-radius: 0;height:25px;">
         <br>
         <label>Email📧:</label>
         <input type="text" id="Email" name="email" placeholder="Your Email">
@@ -280,6 +267,6 @@
        <button type="submit" style="font-size:25px;">Submit</button>
        
     </form>
-    <div class="box3" style="font-size:15px;">Any Problem? Contact Us!  3024579532@qq.com</div>
+    <div class="box3">Any Problem? Contact Us!  3024579532@qq.com</div>
 </body>
 </html>
