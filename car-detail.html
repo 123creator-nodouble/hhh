@@ -1,17 +1,24 @@
 ﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Detail - CAR SALE PLATFORM</title>
+    <meta charset="UTF-8">
+    <title>Car Detail</title>
     <style>
         body {
             background-image: url("images/detail.jpg");
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
         }
-        .box {
+
+        .navigationbar {
             height: 60px;
-            background-color: rgba(87, 86, 86, 1);
+            background-color: rgba(87, 86, 86, 0.8);
             position: fixed;
             right: 0;
             left: 0;
@@ -20,105 +27,124 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
-            z-index: 999;       
+            z-index: 999;
         }
-            .box h1 {
-                color: burlywood;
-                font-size: 25px;
-                margin: 0;
-            }
-        .navigationlinks {
-            display: flex;
-            gap: 25px;
-        }
-            .navigationlinks a {
-                color: white;
-                text-decoration: none;
-                font-size: 16px;
-            }
-                .navigationlinks a:hover {
-                    color: #35f361;
-                }
+
         .logoarea {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .detailcontainer {
-            max-width: 1200px;
-            margin: 8rem auto 2rem;
-            padding: 0 1rem;
+
+            .logoarea img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+        .sitetitle {
+            color: burlywood;
+            font-size: 25px;
+            text-decoration: none;
         }
-        .detailbox {
-            background: rgba(245, 245, 245, 0.8);
-            padding: 2rem;
+
+        .navigationlinks {
             display: flex;
-            gap: 2rem;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            .navigationlinks a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+            }
+
+                .navigationlinks a:hover {
+                    color: #35f361;
+                }
+
+        .detail-container {
+            max-width: 1000px;
+            margin: 120px auto;
+            background: rgba(255,255,255,0.9);
+            padding: 40px;
+            border-radius: 12px;
+            color: #333;
+            display: flex;
+            gap: 40px;
             align-items: center;
         }
-            .detailbox img {
-                width: 500px;
-                height: 400px;
+
+            .detail-container img {
+                width: 400px;
+                border-radius: 8px;
                 object-fit: cover;
             }
-        .infotext {
-            font-size: 1.1rem;
-            line-height: 1.8;
+
+        .info p {
+            font-size: 18px;
+            margin: 12px 0;
         }
-            .infotext p {
-                margin: 0.6rem 0;
-            }
-            .infotext span:first-child {
-                font-weight: bold;
-                color: #35f361;
-            }
-            .infotext span:last-child {
-                font-weight: normal;
-                color: #333;
-            }
-        .bottom {
+
+        .info strong {
+            color: #35f361;
+            width: 100px;
+            display: inline-block;
+        }
+
+        .back-btn {
             background: #35f361;
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
-            border-radius: 4px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .warning-text {
+            font-style: italic;
+            color: #ff4444 !important;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="box">
+        <nav class="navigationbar">
             <div class="logoarea">
-                <img src="images/logo.jpg" width="50">
-                <h1>CAR SALE PLATFORM</h1>
+                <img src="images/logo.jpg">
+                <a class="sitetitle">CAR SALE PLATFORM</a>
             </div>
-                <div class="navigationlinks">
-                    <a href="f1 homepage.html">homepage</a>
-                    <a href="search.html">search car</a>
-                    <a href="login.html">log in</a>
-                    <a href="carregistration.html">sign in</a>
-                    <a href="add-car-page.html">add car</a>
-                </div>
-            </div>
-</header>
-    <main class="detailcontainer">
-        <h1>Car Details⚆_⚆</h1>
-        <div class="detailbox">
-            <img src="" id="carimg">
-            <div class="infotext">
-                <p><span>Model:</span> <span id="model"></span></p>
-                <p><span>Year:</span> <span id="year"></span></p>
-                <p><span>Price:</span> <span id="price"></span></p>
-                <p><span>Color:</span> <span id="color"></span></p>
-                <p><span>Location:</span> <span id="location"></span></p>
-                <p><span>Seller:</span> <span id="seller"></span></p>
-                <p><span>*Please use transactions through other third-party channels with caution！（︶︿︶）</span></p>
-            </div>
+            <ul class="navigationlinks">
+                <li><a href="f1 homepage.html">homepage</a></li>
+                <li><a href="search.html">search car</a></li>
+                <li><a href="login.html">log in</a></li>
+                <li><a href="carregistration.html">sign in</a></li>
+                <li><a href="add-car-page.html">add car</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="detail-container">
+        <img id="carimg" src="">
+        <div class="info">
+            <p><strong>Model:</strong> <span id="model"></span></p>
+            <p><strong>Year:</strong> <span id="year"></span></p>
+            <p><strong>Color:</strong> <span id="color"></span></p>
+            <p><strong>Price:</strong> <span id="price"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Seller ID:</strong> <span id="seller"></span></p>
+            <p class="warning-text">*Please use transactions through other third-party channels with caution！（︶︿︶）</p>
+
+            <a href="search.html" class="back-btn">Back to Search</a>
         </div>
-        <a href="search.html" class="bottom">Back to Search</a>
-    </main>
-    <script src="js/search.js"></script>
+    </div>
+    <script src="search.js"></script>
 </body>
 </html>
